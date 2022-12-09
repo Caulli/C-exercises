@@ -1,0 +1,20 @@
+//Create a function to find only the root value of x in any quadratic equation ax^2 + bx + c.
+
+#include <iostream>
+#include <cmath>
+
+int quadraticEquation(int a, int b, int c) {
+    // x = (-b ± √ (b2 - 4ac) )/2a.
+    int x = (-b+ sqrt((b * b) - 4 * a * c))/(2*a);
+    int y = (-b- sqrt((b * b) - 4 * a * c))/(2*a);
+    if(x > 0){
+        return x;
+    }
+    return y;
+}
+
+int main() {
+    std::cout << quadraticEquation(1, 2, -3) << "\n";
+    std::cout << quadraticEquation(2, -7, 3) << "\n";
+    std::cout << quadraticEquation(1, -12, -28) << "\n";
+}
