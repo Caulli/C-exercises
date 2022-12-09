@@ -1,0 +1,12 @@
+#include <iostream>
+
+bool isSafeBridge(std::string b){
+        if(b.find(" ")<b.length()){
+            return true;
+        }
+    return false;
+}
+
+int main() {
+    std::cout << isSafeBridge("####") << "\n" << isSafeBridge("## ####") << "\n" << isSafeBridge("#");
+}
