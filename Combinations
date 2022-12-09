@@ -1,0 +1,27 @@
+// Create a function that takes a variable number of arguments, each argument representing the number of items in a group. The function should return the number of permutations (combinations) of choices you would have if you selected one item from each group.
+
+#include <iostream>
+#include <vector>
+
+int combinations(std::vector<int> items) {
+    int current = 1;
+    for(int i = 0; i < items.size(); i++){
+        if(items[i] != 0 ){
+            current = current *items[i];
+        }
+    }
+    return current;
+}
+
+int main() {
+    std::cout << combinations({2})<< "\n";
+    std::cout << combinations({2, 3})<< "\n";
+    std::cout << combinations({3, 5})<< "\n";
+    std::cout << combinations({5, 6, 7})<< "\n";
+    std::cout << combinations({5, 5, 5, 5})<< "\n";
+    std::cout << combinations({3, 6, 9})<< "\n";
+    std::cout << combinations({2, 3, 4, 5, 6, 7, 8, 9, 10})<< "\n";
+    std::cout << combinations({4, 5, 6})<< "\n";
+    std::cout << combinations({5, 6, 7, 8})<< "\n";
+    std::cout << combinations({6, 7, 0})<< "\n";
+}
