@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+
+bool isTriplet(int a, int b, int c){
+    int sa = a * a;
+    int sb = b * b;
+    int sc = c * c;
+
+    if(sa < sb || sa < sc && sb < sc){
+        if(sa+sb == sc) {
+            return true;
+        }
+    }
+    if(sa < sb && sc < sb){
+        if(sa + sc == sb){
+            return true;
+        }
+    }
+    if(sb < sa && sc < sa){
+        if(sb+ sc == sa){
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    isTriplet(3,4,5);
+    std::cout << isTriplet(3,4,5) << "\n";
+    std::cout << isTriplet(13,5,12) << "\n";
+    std::cout << isTriplet(1,2,3) << "\n";
+    return 0;
+}
