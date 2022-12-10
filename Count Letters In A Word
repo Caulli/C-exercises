@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int letterCounter(vector<vector<char>> arr, char c) {
+    int count = 0;
+    int j =0;
+    for(int i=0;i < 6;i++){
+        for(int j=0; j < arr.size();j++){
+        if(arr.at(j).at(i) == c) {
+            count++;
+        }
+        }
+    }
+    return count;
+}
+
+int main() {
+    cout << letterCounter({
+                          {'D', 'E', 'Y', 'H', 'A', 'D'},
+                          {'C', 'B', 'Z', 'Y', 'J', 'K'},
+                          {'D', 'B', 'C', 'A', 'M', 'N'},
+                          {'F', 'G', 'G', 'R', 'S', 'R'},
+                          {'V', 'X', 'H', 'A', 'S', 'S'}
+                  }, 'D') << "\n";
+    cout << letterCounter({
+                                  {'D', 'E', 'Y', 'H', 'A', 'D'},
+                                  {'C', 'B', 'Z', 'Y', 'J', 'K'},
+                                  {'D', 'B', 'C', 'A', 'M', 'N'},
+                                  {'F', 'G', 'G', 'R', 'S', 'R'},
+                                  {'V', 'X', 'H', 'A', 'S', 'S'}
+                          }, 'H');
+    return 0;
+}
