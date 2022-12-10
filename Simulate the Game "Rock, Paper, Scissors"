@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+
+std::string rps(std::string s1, std::string s2) {
+    std::string pl1win("Player 1 wins!");
+    std::string pl2win("Player 2 wins!");
+    std::string tie("TIE");
+    if(s1 == "rock"){
+        if(s2 == "rock"){
+            return tie;
+        }
+        else if(s2 == "paper"){
+            return pl2win;
+        }
+        else{
+            return pl1win;
+        }
+    }
+    else if(s1 == "paper"){
+        if(s2 == "paper"){
+            return tie;
+        }
+        else if(s2 == "rock"){
+            return pl1win;
+        }
+        else{
+            return pl2win;
+        }
+    }
+    else{
+        if(s2 == "scissors"){
+            return tie;
+        }
+        else if(s2 == "paper"){
+            return pl1win;
+        }
+        else{
+            return pl2win;
+        }
+    }
+}
+
+int main() {
+    std::cout << rps("rock", "paper") << "\n";
+    std::cout << rps("paper", "rock") << "\n";
+    std::cout << rps("paper", "scissors") << "\n";
+    std::cout << rps("scissors", "scissors") << "\n";
+    std::cout << rps("scissors", "paper") << "\n";
+    return 0;
+}
