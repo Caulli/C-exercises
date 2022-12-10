@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+
+std::string detectWord(std::string str) {
+    std::string str2;
+    for(int i =0; i < str.length();i++){
+        if(std::islower(str[i])){
+            str2.push_back(str[i]);
+        }
+    }
+    return str2;
+}
+
+int main() {
+    std::cout << detectWord("UcUNFYGaFYFYGtNUH") << "\n";
+    std::cout << detectWord("bEEFGBuFBRrHgUHlNFYaYr") << "\n";
+    std::cout << detectWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment") << "\n";
+    std::cout << detectWord("cLXSNVVJVOJBIQRVKIZWKJOIVHXELVReLXSNVVJVOJBIQRVKIZWKJOIVHXELVRrLXSNVVJVOJBIQRVKIZWKJOIVHXELVRtLXSNVVJVOJBIQRVKIZWKJOIVHXELVRaLXSNVVJVOJBIQRVKIZWKJOIVHXELVRiLXSNVVJVOJBIQRVKIZWKJOIVHXELVRn") << "\n";
+    return 0;
+}
