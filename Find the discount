@@ -1,0 +1,14 @@
+#include <iostream>
+
+double dis(double price, double discount) {
+    discount = discount / 100;
+    double discountBeforePrice = price * discount;
+    price = price - discountBeforePrice;
+    return price;
+}
+
+int main() {
+    std::cout << dis(100,75) << "\n"; // answer = 25
+    std::cout << dis(211,50); // answer = 105.5;
+    return 0;
+}
