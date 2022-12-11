@@ -1,0 +1,30 @@
+#include <iostream>
+
+int ageDifference(int fAge, int sAge) {
+    int agediff = 0;
+    while(sAge * 2 != fAge){
+        sAge++;
+        fAge++;
+        agediff++;
+    }
+    if(agediff > 0){
+        std::cout << agediff << " years from now, the father will be " << fAge << " years old and his son will be " << sAge << " years old.\n" << std::endl;
+    }
+    if(agediff < 0){
+        std::cout << (agediff * -1) << " years ago, the father was " << fAge <<  " years old and his son was " << sAge << " years old.\n" << std::endl;
+    }
+    if(agediff == 0){
+        std::cout << "father is " << fAge << " years old and son is " << sAge << " years old right now\n" << std::endl;
+    }
+    return agediff;
+}
+
+
+int main() {
+   ageDifference(36,7); // answer = 22
+   ageDifference(55,30); // answer = 5 years ago
+   ageDifference(42,21); // answer = 0
+   ageDifference(22,1); // answer is 20
+   ageDifference(29,0); // answer = 29
+    return 0;
+}
