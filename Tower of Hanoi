@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+
+int towerHanoi(int discs) {
+    int amount = 0;
+    if(discs == 0){
+        return amount;
+    }
+    else{
+        amount = pow(2, discs) - 1;
+    }
+    std::cout << amount;
+    return amount;
+}
+
+
+int main() {
+    towerHanoi(3);
+    return 0;
+}
