@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+
+std::string giveMeSomething(std::string a) {
+    std::string something("something ");
+    something = something + a + "\n";
+    return something;
+}
+
+
+int main() {
+    std::cout << giveMeSomething("is better than nothing");
+    std::cout << giveMeSomething("is cooking");
+    return 0;
+}
