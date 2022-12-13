@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+
+std::vector<std::string> makeBox(int n) {
+    std::string test;
+    std::vector first({test});
+    for(int i=0;i<n;i++){
+        for(int j = 0; j < n; j++){
+            if(i == 0 || i == n-1 || j == 0 || j == n-1) {
+                test.push_back('#');
+            }
+            else if(j > 0 && j != n){
+                test.push_back(' ');
+            }
+        }
+        test.push_back('\n');
+    }
+    std::cout << test;
+    return first;
+}
+
+int main() {
+    makeBox(5);
+    makeBox(1);
+    makeBox(100);
+    return 0;
+}
