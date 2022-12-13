@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+std::string textToNumberBinary(std::string str) {
+    std::string Return;
+
+    for(int i = 0; i < str.length();i++){
+        if((str[i] == 'o' || str[i] == 'O') && (str[i+1] == 'n' || str[i+1] == 'N') && (str[i+2] == 'e' || str[i+2] == 'E')){
+            Return.push_back('1');
+        }
+        if((str[i] == 'z' || str[i] == 'Z') && (str[i+1] == 'e' || str[i+1] == 'E') && (str[i+2] == 'r' || str[i+2] == 'R') && (str[i+3] == 'o' || str[i+3] == 'O'))
+            Return.push_back('0');
+    }
+    while(Return.length() % 8 != 0){
+        Return.pop_back();
+    }
+    std::cout << Return << "\n";
+    return Return;
+}
+
+int main() {
+    textToNumberBinary("zero one zero one zero one zero one"); // "01010101"
+    textToNumberBinary("Zero one zero ONE zero one zero one"); // "01010101"
+    textToNumberBinary("zero one zero one zero one zero one one two"); //"01010101"
+    textToNumberBinary("zero one zero one zero one zero three");// ""
+    textToNumberBinary("one one"); //""
+    textToNumberBinary("one Zero zero one zero zero one one one one one zero oNe one one zero one zerO"); //"1001001111101110"
+    return 0;
+}
