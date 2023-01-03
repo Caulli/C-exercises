@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+
+bool possiblyPerfect(std::vector<char> key, std::vector<char> answers) {
+    int is_true = 0;
+
+    if (key[0] == answers[0]) {
+        for(int i =0;i<key.size();i++) {
+            if(key[i] == answers[i] || key[i] == '_'){
+                is_true = 0;
+            }
+            else{
+                is_true = 1;
+                break;
+            }
+        }
+    }
+    if(key[0] != answers[0]){
+        for(int i =0;i<key.size();i++) {
+            if (key[i] != answers[i] || answers[i] == '_') {
+                is_true = 0;
+            } else {
+                is_true = 1;
+                break;
+            }
+        }
+    }
+    if(is_true == 0){
+        return true;
+    }
+    return false;
+
+}
+
+int main() {
+    std::cout << possiblyPerfect({'A', '_', 'C', '_', 'B'}, {'A', 'D', 'C', 'E', 'B'}); //true
+    std::cout << possiblyPerfect({'B', '_', 'B'}, {'B', 'D', 'C'}); //false
+    std::cout << possiblyPerfect({'T', '_', 'F', 'F', 'F'}, {'F', 'F', 'T', 'T', 'T'}); //true
+    std::cout << possiblyPerfect({'A', 'B', 'C', '_'}, {'B', 'A', 'C', 'C'}); //false
+    std::cout << possiblyPerfect({'B', 'A', '_', '_'}, {'B', 'A', 'C', 'C'}); //true
+
+    return 0;
+}
