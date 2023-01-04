@@ -1,0 +1,62 @@
+#include <iostream>
+#include <sstream>
+
+int convertNumber(int n){
+    int first_digit = n;
+    int last_digit = n;
+    std::ostringstream digits;
+    while(first_digit >= 10){
+        first_digit /= 10;
+    }
+    last_digit = n % 10;
+
+    digits << first_digit << last_digit;
+    std::string m = digits.str();
+    int number = std::stoi(m);
+    return number;
+}
+
+int gapful(int n) {
+    if(n < 100){
+        return 100;
+    }
+    else {
+        int l = n;
+        int p = n;
+        int count_up = 0;
+        int count_down = 0;
+
+        int number_l = convertNumber(l);
+        int number_p = convertNumber(p);
+        while(l % number_l != 0){
+            l++;
+            number_l++;
+            number_l = convertNumber(l);
+            count_up++;
+        }
+        while(p % number_p != 0){
+            p--;
+            number_p++;
+            number_p = convertNumber(p);
+            count_down++;
+        }
+        if(count_up < count_down){
+            return l;
+        }
+        else{
+            return p;
+        }
+    }
+}
+
+
+int main() {
+    std::cout << gapful(25) << "\n"; // 100
+    std::cout << gapful(100) << "\n"; // 100
+    std::cout << gapful(103) << "\n"; // 105
+    std::cout << gapful(1442) << "\n"; // 1441
+    std::cout << gapful(3345) << "\n"; // 3333
+    std::cout << gapful(4780) << "\n"; // 4773
+    std::cout << gapful(3078) << "\n"; // 3078
+    return 0;
+}
