@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+
+int freedPrisoners(std::vector<int> prison) {
+    int prisonersFreed = 0;
+    for(int i=0;i<prison.size();i++){
+        if(prison[i] == 1){
+            prisonersFreed++;
+            for(int j = i; j < prison.size();j++){
+                if(prison[j] == 0){
+                    prison[j] = 1;
+                }
+                else{
+                    prison[j] = 0;
+                }
+            }
+        }
+    }
+    return prisonersFreed;
+}
+
+int main() {
+    std::cout << freedPrisoners({1, 1, 0, 0, 0, 1, 0}) << "\n"; // 4
+    std::cout << freedPrisoners({1, 0, 0, 0, 0, 0, 0}) << "\n"; // 2
+    std::cout << freedPrisoners({1, 1, 1, 0, 0, 0}) << "\n"; //  2
+    std::cout << freedPrisoners({1, 0, 1, 0, 1, 0}) << "\n"; //6
+    std::cout << freedPrisoners({1, 1, 1}) << "\n"; // 1
+    std::cout << freedPrisoners({0, 0, 0}) << "\n"; //0
+    std::cout << freedPrisoners({0, 1, 1, 1}) << "\n"; // 0
+    return 0;
+}
